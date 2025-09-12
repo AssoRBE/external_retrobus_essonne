@@ -1,0 +1,166 @@
+﻿:root{
+  --white:#fff; --text-dark:#222;
+
+  --header-h:120px;     /* hauteur du header */
+  --bg-pos-y:84%;       /* 45%, 55% pour monter/descendre */
+  --blur-width:33%;     /* largeur visuelle de la zone “dépolie” */
+  --blur-strength:14px; /* intensité du flou pour le fallback */
+}
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--white);color:var(--text-dark);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* ===== Header ===== */
+.site-header{
+  position:fixed; top:0; left:0; right:0;
+  height:var(--header-h);
+  border-bottom:1px solid #ddd;
+  overflow:hidden;
+  z-index:1000;
+}
+
+/* Image nette (base) */
+.header-bg{
+  position:absolute; inset:0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position-x:center;
+  background-position-y:var(--bg-pos-y);
+  z-index:0;
+}
+
+/* ========= Méthode A : vrai verre dépoli (si supporté) ========= */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .frosted{
+    position:absolute; top:0; left:0; bottom:0;
+    width:var(--blur-width);
+    background:linear-gradient(
+      to right,
+      rgba(255,255,255,.22) 0%,
+      rgba(255,255,255,.14) 60%,
+      rgba(255,255,255,0) 100%
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index:2; pointer-events:none;
+  }
+  /* On cache complètement le fallback */
+  .header-bg-blur, .blur-gradient { display:none; }
+}
+
+/* ========= Méthode B (fallback) : flou clippé + léger dégradé ======== */
+/* Calque flou limité à gauche, SANS transparence sur le reste */
+.header-bg-blur{
+  position:absolute; top:-20px; bottom:-20px; left:-20px;
+  width:calc(var(--blur-width) + 40px);     /* extra pour éviter halo */
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position-x:center;
+  background-position-y:var(--bg-pos-y);
+  filter:blur(var(--blur-strength));
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%); /* zone strictement à gauche */
+  z-index:1; pointer-events:none;
+}
+
+/* Dégradé de fondu propre (pas un mélange vilain) */
+.blur-gradient{
+  position:absolute; top:0; bottom:0; left:0;
+  width:calc(var(--blur-width) + 8%);       /* un peu plus large que le flou */
+  background:linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 75%,
+    rgba(255,255,255,.06) 100%
+  );
+  z-index:2; pointer-events:none;
+}
+
+/* Contenu (logo) */
+.header-inner{
+  position:relative; display:flex; align-items:center;
+  height:100%; padding:0 1.5rem; z-index:3;
+}
+.header-logo{ height:125px; width:auto; object-fit:contain }
+
+/* Corps */
+.page-body{
+  padding-top:calc(var(--header-h) + 10px);
+  min-height:100vh; position:relative;
+}
+
+/* Watermark (optionnel) */
+.page-body::after{
+  content:""; position:fixed; bottom:20px; left:20px;
+  width:180px; height:180px;
+  background:url("/rbe_logo_short.svg") no-repeat center/contain;
+  opacity:.06; pointer-events:none;
+}
+
+/* Helpers pour mots-clés (optionnels) */
+/* Activer un contexte d'empilement pour que ::before reste visible */
+.page-with-mark {
+  position: relative;
+  isolation: isolate; /* important pour que z-index s'applique au bloc */
+}
+
+/* Watermark configurable (un seul bloc, pas de doublon) */
+.page-with-mark::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: var(--mark-size, 600px);
+  height: var(--mark-size, 600px);
+  background-image: var(--page-mark);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  opacity: var(--mark-opacity, 0.10);
+  pointer-events: none;
+
+  /* Reste DANS la page (au-dessus du fond), sans passer sous le body */
+  z-index: 0;
+
+  /* Choisis un des deux comportements via variables : */
+  /* 1) Par défaut: contraste auto (blanc -> noir sur fond clair) */
+  mix-blend-mode: var(--mark-blend, difference);
+  filter: var(--mark-filter, none);
+}
+
+/* (Facultatif) Helpers de placement par data-attrs */
+.page-with-mark[data-pos-x="left"]::before { left: 0; transform: translateX(0); }
+.page-with-mark[data-pos-x="center"]::before { left: 50%; transform: translateX(-50%); }
+.page-with-mark[data-pos-x="right"]::before { left: auto; right: 0; transform: translateX(0); }
+
+.page-with-mark[data-pos-y="top"]::before { top: 0; bottom: auto; }
+.page-with-mark[data-pos-y="center"]::before { top: 50%; bottom: auto; transform: translate(var(--_tx, -50%), -50%); }
+.page-with-mark[data-pos-y="bottom"]::before { bottom: 0; top: auto; }
+
+/* Barre de menus sous le header */
+.site-nav{
+  position: fixed;
+  top: calc(var(--header-h) + 0px);
+  left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  z-index: 900;
+}
+.site-nav__inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.nav-btn{
+  display:inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  color:#222; text-decoration:none;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+}
+.nav-btn:hover{ background:#f6f7f8; }
+.nav-btn.active{ background:#111; color:#fff; }
+main{ padding-top: calc(var(--header-h) + 56px); }
