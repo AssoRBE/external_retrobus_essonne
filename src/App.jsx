@@ -1,11 +1,14 @@
 ﻿import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import "./styles.css";
 import pageBg from "./assets/logo_arriere_plan.svg"; // ✅ ton fichier
+import Vehicles from "./pages/Vehicles";
+import VehicleDetails from "./pages/VehicleDetails";
 
 export default function App() {
   return (
-    <>
+    <Router>
       <Header />
       <main
         className="page-body page-with-mark"
@@ -24,6 +27,10 @@ export default function App() {
         <p>Un peu de patience, le site internet arrive !</p>
         {/* ... tes sections/cartes ... */}
       </main>
-    </>
+      <Routes>
+        <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/vehicles/:id" element={<VehicleDetails />} />
+      </Routes>
+    </Router>
   );
 }
