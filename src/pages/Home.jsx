@@ -86,8 +86,8 @@ export default function Home() {
           <section id="a-propos">
             <Heading as="h2" size="xl" mb={3}>Qui sommes-nous ?</Heading>
             <Text fontSize="lg" color="blackAlpha.800">
-              Association loi 1901 basée en Essonne, RBE sauvegarde, entretient et fait rouler des autobus
-              historiques. Nous partageons notre passion lors d’événements, balades et expositions.
+              Association régie par la loi 1901, l'Association RétroBus Essonne préserve, collectionne et expose
+              un patrimoine roulant
             </Text>
           </section>
 
