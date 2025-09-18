@@ -215,31 +215,22 @@ a:hover{ text-decoration: underline; }
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 
-/* === Grille centrée + gros gutter === */
+/* === Grille centrée pour TOUT le contenu, hors header === */
 :root{
   --layout-max: 1200px;             /* largeur max du contenu */
-  --gutter: clamp(28px, 6vw, 56px); /* marge interne L/R responsive */
+  --gutter: clamp(28px, 6vw, 64px); /* marge L/R responsive un peu plus large */
 }
 
-/* Contenu principal (toutes les pages) */
+/* 1) Le conteneur principal de tes pages (ton <main>) */
 .site-main{
   width: min(var(--layout-max), calc(100% - (var(--gutter) * 2)));
   margin-left: auto;
   margin-right: auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 24px 0;   /* haut/bas seulement, le gutter gère déjà les côtés */
   box-sizing: border-box;
 }
 
-/* Aligner Header/Nav sur la même grille visuelle */
-.site-header > *, .site-nav > *{
-  width: min(var(--layout-max), calc(100% - (var(--gutter) * 2)));
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-/* Chakra <Container> : même logique (au cas où) */
+/* 2) Si tu utilises des <Container> Chakra à l’intérieur des pages */
 .chakra-container{
   width: min(var(--layout-max), calc(100% - (var(--gutter) * 2))) !important;
   max-width: none !important;
@@ -250,8 +241,13 @@ a:hover{ text-decoration: underline; }
   box-sizing: border-box;
 }
 
-/* Un peu d’air entre sections par défaut */
+/* 3) Utilitaire pour borner une colonne de texte (héros, intro, etc.) */
+.content-limit{
+  max-width: 640px;            /* ~60–65ch ; lisible, pas collé au bord */
+  margin-left: 0;              /* reste aligné côté gauche de la grille */
+}
+
+/* 4) Espace doux entre sections */
 .site-main section{ margin-block: 28px; }
 
-/* Sécurité anti-scroll horizontal */
-html, body{ overflow-x: hidden; }
+/* 5)*
