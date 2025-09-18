@@ -7,9 +7,30 @@
   --blur-strength:14px; /* intensité du flou pour le fallback */
 }
 
+/* Optionnel : si tu veux embarquer la police dans le site,
+   place les fichiers dans `public/fonts/` (ou `externe/public/fonts/`)
+   et décommente / adapte les URLs ci-dessous. */
+@font-face {
+  font-family: "Nimbus Sans T OT";
+  /* Utiliser local() pour profiter d'une installation système si présente */
+  src: local("Nimbus Sans T OT"), local("NimbusSansT-OT"),
+       /* Décommente et adapte les chemins si tu fournis des fichiers webfonts */
+       /* url("/fonts/NimbusSansT-regular.woff2") format("woff2"), */
+       /* url("/fonts/NimbusSansT-regular.woff") format("woff"); */
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* évite blocage du rendu */
+}
+
 /* Reset */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;background:var(--white);color:var(--text-dark);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+/* Remplace Montserrat par Nimbus Sans T OT (fallbacks incluant Montserrat si tu veux garder l'ancienne) */
+html,body{
+  height:100%;
+  background:var(--white);
+  color:var(--text-dark);
+  font-family: "Nimbus Sans T OT", "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
 
 /* ===== Header ===== */
 .site-header{
