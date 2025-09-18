@@ -214,3 +214,44 @@ a:hover{ text-decoration: underline; }
   border:1px solid #e7e7e7; border-radius:16px; background:#fff;
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
+
+/* === Grille centrée + gros gutter === */
+:root{
+  --layout-max: 1200px;             /* largeur max du contenu */
+  --gutter: clamp(28px, 6vw, 56px); /* marge interne L/R responsive */
+}
+
+/* Contenu principal (toutes les pages) */
+.site-main{
+  width: min(var(--layout-max), calc(100% - (var(--gutter) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+/* Aligner Header/Nav sur la même grille visuelle */
+.site-header > *, .site-nav > *{
+  width: min(var(--layout-max), calc(100% - (var(--gutter) * 2)));
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Chakra <Container> : même logique (au cas où) */
+.chakra-container{
+  width: min(var(--layout-max), calc(100% - (var(--gutter) * 2))) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Un peu d’air entre sections par défaut */
+.site-main section{ margin-block: 28px; }
+
+/* Sécurité anti-scroll horizontal */
+html, body{ overflow-x: hidden; }
