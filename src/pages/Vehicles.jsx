@@ -66,6 +66,7 @@ export default function Vehicles() {
               <Text color="gray.600" mb={4}>
                 {vehicle.subtitle}
               </Text>
+              {console.log(`/vehicles/${vehicle.id}`)}
               <Link to={`/vehicles/${vehicle.id}`}>
                 <Button colorScheme="teal">Voir les détails</Button>
               </Link>
