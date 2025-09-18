@@ -183,3 +183,34 @@ main{ padding-top: calc(var(--header-h) + 56px); }
   margin-left:50%;
   transform:translateX(-50%);
 }
+/* ====== Titres cohérents ====== */
+h1, .h1{ font-weight:700; letter-spacing:.2px; line-height:1.15; }
+h2, .h2{ font-weight:700; letter-spacing:.2px; line-height:1.2; }
+h3, .h3{ font-weight:600; line-height:1.25; }
+
+/* Espacements par défaut */
+h1{ font-size: clamp(28px, 3.2vw, 40px); margin: 6px 0 14px; }
+h2{ font-size: clamp(22px, 2.4vw, 28px); margin: 4px 0 12px; }
+h3{ font-size: clamp(18px, 2vw, 22px);  margin: 2px 0 10px; }
+
+/* Paragraphes plus lisibles */
+p{ font-size: 16.5px; line-height:1.6; color:#222; }
+
+/* ====== Identité RBE : accent #e40045 (sobre) ====== */
+:root{ --rbe-accent:#e40045; }
+a{ color: var(--rbe-accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* Boutons “marque” génériques (si tu en as hors Chakra) */
+.btn-brand{
+  background:var(--rbe-accent);
+  color:#fff; border:1px solid transparent;
+  padding:10px 18px; border-radius:10px; font-weight:600;
+}
+.btn-brand:hover{ filter:brightness(.96); }
+
+/* Cartes sobres */
+.card{
+  border:1px solid #e7e7e7; border-radius:16px; background:#fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
