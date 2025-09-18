@@ -13,10 +13,12 @@
 @font-face {
   font-family: "Nimbus Sans T OT";
   /* Utiliser local() pour profiter d'une installation système si présente */
-  src: local("Nimbus Sans T OT"), local("NimbusSansT-OT"),
-       /* Décommente et adapte les chemins si tu fournis des fichiers webfonts */
-       /* url("/fonts/NimbusSansT-regular.woff2") format("woff2"), */
-       /* url("/fonts/NimbusSansT-regular.woff") format("woff"); */
+  src: local("Nimbus Sans T OT"), local("NimbusSansT-OT");
+  /* Décommente et adapte les chemins si tu fournis des fichiers webfonts :
+     url("/fonts/NimbusSansT-regular.woff2") format("woff2"),
+     url("/fonts/NimbusSansT-regular.woff") format("woff");
+     -- si tu fournis des fichiers, replace le ';' ci-dessus après les url() et
+        supprime le point-virgule après local(...) */
   font-weight: 400;
   font-style: normal;
   font-display: swap; /* évite blocage du rendu */
