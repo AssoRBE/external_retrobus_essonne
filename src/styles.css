@@ -285,7 +285,7 @@ a:hover{ text-decoration: underline; }
 
 /* Style pour la bannière de fin de page */
 .site-footer {
-  background-color: #e50147; /* Pourpre vif */
+  background-color: #d30c4c; /* Rouge pourpre */
   color: #fff; /* Texte en blanc */
   font-family: "Montserrat", sans-serif; /* Police Montserrat */
   font-size: 16px; /* Agrandir la police */
@@ -319,7 +319,7 @@ a:hover{ text-decoration: underline; }
   height: 40px;
   background-color: #fff; /* Carré blanc */
   border-radius: 5px; /* Coins légèrement arrondis */
-  color: #e50147; /* Couleur pourpre vif pour les icônes */
+  color: #d30c4c; /* Couleur pourpre pour les icônes */
   font-size: 20px; /* Taille des icônes */
   text-decoration: none;
 }
