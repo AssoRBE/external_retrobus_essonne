@@ -295,6 +295,15 @@ a:hover{ text-decoration: underline; }
   align-items: center;
 }
 
+.site-footer a {
+  color: #fff; /* Liens en blanc */
+  text-decoration: underline; /* Optionnel pour les liens */
+}
+
+.site-footer a:hover {
+  color: #f0f0f0; /* Légère variation au survol */
+}
+
 .site-footer .social-icons {
   display: flex;
   flex-direction: column; /* Icônes en verticale */
