@@ -16,7 +16,7 @@ import vehicleImage3 from "../assets/920_back.jpg";
 
 const vehicles = [
   {
-    id: "24991",
+    id: "920",
     title: "Mercedes‑Benz Citaro",
     subtitle: "Citaro 1 €2",
     make: "Mercedes Benz",
