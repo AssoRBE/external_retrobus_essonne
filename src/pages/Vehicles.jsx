@@ -10,8 +10,8 @@ import {
   SimpleGrid,
   VStack,
 } from "@chakra-ui/react";
-import vehicleImage1 from "../assets/920_pres.jpg"; // Assurez-vous que les images sont dans ce chemin
-import vehicleImage2 from "../assets/920_side.jpg";
+import vehicleImage1 from "../assets/920_pres.jpg";
+import vehicleImage2 from "../assets/920_side.jpg"; // Chemin corrigé
 import vehicleImage3 from "../assets/920_back.jpg";
 
 export default function Vehicles() {
