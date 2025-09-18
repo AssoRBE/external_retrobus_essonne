@@ -13,10 +13,10 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import rbeImg from "../assets/rbe_920.jpg";
+import vehicleImage from "../assets/920_pres.jpg"; // Assurez-vous que l'image est dans ce chemin
 
 export default function Vehicles() {
-  const [mainSrc] = useState(rbeImg);
+  const [mainSrc] = useState(vehicleImage);
 
   const vehicle = {
     id: "24991",
