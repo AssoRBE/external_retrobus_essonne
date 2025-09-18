@@ -1,25 +1,39 @@
 ﻿import { Container, SimpleGrid, Text, Link as CLink } from "@chakra-ui/react";
+import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
 
-export default function Footer(){
+export default function Footer() {
   return (
     <footer className="site-footer">
       <Container>
-        <SimpleGrid columns={{ base:1, md:3 }} spacing={6}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
           <div>
             <Text fontWeight={700}>RetroBus Essonne</Text>
             <Text fontSize="sm" opacity={0.8}>Patrimoine des transports en Essonne.</Text>
           </div>
           <div>
             <Text fontWeight={700}>Liens utiles</Text>
-            <CLink href="/statuts.pdf">Statuts</CLink><br/>
-            <CLink href="/rgpd.pdf">Mentions legales & RGPD</CLink>
+            <CLink href="/statuts.pdf">Statuts</CLink><br />
+            <CLink href="/rgpd.pdf">Mentions légales & RGPD</CLink>
           </div>
           <div>
             <Text fontWeight={700}>Contact</Text>
-            <Text fontSize="sm">contact@retrobus-essonne.fr</Text>
+            <Text fontSize="sm">association.rbe@gmail.com</Text>
           </div>
         </SimpleGrid>
-        <Text mt={6} fontSize="xs" opacity={0.6}>Â© {new Date().getFullYear()} RetroBus Essonne - Tous droits reserves.</Text>
+        <div className="social-icons">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer">
+            <FaFacebook />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <FaInstagram />
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noreferrer">
+            <FaTiktok />
+          </a>
+        </div>
+        <Text mt={6} fontSize="xs" opacity={0.6}>
+          Â© {new Date().getFullYear()} RetroBus Essonne - Tous droits réservés.
+        </Text>
       </Container>
     </footer>
   );
