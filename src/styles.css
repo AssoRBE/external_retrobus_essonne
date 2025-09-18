@@ -282,3 +282,10 @@ a:hover{ text-decoration: underline; }
   align-items: center;   /* centre horizontalement */
   justify-content: flex-start; /* ou 'center' pour centrer aussi verticalement */
 }
+
+/* Ajout pour la bannière de fin de page */
+.site-footer {
+  background-color: #e50147; /* Pourpre vif */
+  color: #fff; /* Texte en blanc pour contraste */
+  padding: 20px 0; /* Espacement vertical */
+}
