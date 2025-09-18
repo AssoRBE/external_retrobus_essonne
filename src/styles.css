@@ -286,6 +286,15 @@ a:hover{ text-decoration: underline; }
 /* Ajout pour la bannière de fin de page */
 .site-footer {
   background-color: #e50147; /* Pourpre vif */
-  color: #fff; /* Texte en blanc pour contraste */
+  color: #fff; /* Texte en blanc */
   padding: 20px 0; /* Espacement vertical */
+}
+
+.site-footer a {
+  color: #fff; /* Liens en blanc */
+  text-decoration: underline; /* Optionnel pour les liens */
+}
+
+.site-footer a:hover {
+  color: #f0f0f0; /* Légère variation au survol */
 }
