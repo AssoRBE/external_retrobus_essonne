@@ -283,11 +283,16 @@ a:hover{ text-decoration: underline; }
   justify-content: flex-start; /* ou 'center' pour centrer aussi verticalement */
 }
 
-/* Ajout pour la bannière de fin de page */
+/* Style pour la bannière de fin de page */
 .site-footer {
   background-color: #e50147; /* Pourpre vif */
   color: #fff; /* Texte en blanc */
+  font-family: "Montserrat", sans-serif; /* Police Montserrat */
+  font-size: 16px; /* Agrandir la police */
   padding: 20px 0; /* Espacement vertical */
+  display: flex;
+  justify-content: space-between; /* Espacement entre contenu et icônes */
+  align-items: center;
 }
 
 .site-footer a {
@@ -297,4 +302,27 @@ a:hover{ text-decoration: underline; }
 
 .site-footer a:hover {
   color: #f0f0f0; /* Légère variation au survol */
+}
+
+.site-footer .social-icons {
+  display: flex;
+  flex-direction: column; /* Icônes en verticale */
+  gap: 10px; /* Espacement entre les icônes */
+}
+
+.site-footer .social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff; /* Carré blanc */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  color: #e50147; /* Couleur pourpre vif pour les icônes */
+  font-size: 20px; /* Taille des icônes */
+  text-decoration: none;
+}
+
+.site-footer .social-icons a:hover {
+  background-color: #f0f0f0; /* Légère variation au survol */
 }
