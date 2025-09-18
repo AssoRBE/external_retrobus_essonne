@@ -33,6 +33,9 @@ export default function VehicleDetails() {
   const { id } = useParams();
   const vehicle = vehicles.find((v) => v.id === id);
 
+  console.log("Vehicle ID from URL:", id);
+  console.log("Vehicle data:", vehicle);
+
   if (!vehicle) {
     return (
       <Container maxW="6xl" py={10}>
