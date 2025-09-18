@@ -20,6 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <BrowserRouter>
           <Header />
           <Nav />
+          <main className="site-main">
+  <Routes> ... </Routes>
+</main>
           <main>
             <Routes>
               <Route path="/" element={<Home />} />

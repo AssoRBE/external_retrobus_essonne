@@ -164,3 +164,22 @@ html,body{height:100%;background:var(--white);color:var(--text-dark);font-family
 .nav-btn:hover{ background:#f6f7f8; }
 .nav-btn.active{ background:#111; color:#fff; }
 main{ padding-top: calc(var(--header-h) + 56px); }
+
+/* ====== Layout global ====== */
+/* Centre toutes les pages, garde un padding confortable */
+.site-main{
+  /* largeur max cohérente pour un site associatif */
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 24px 20px;
+}
+
+/* Sections plus aérées par défaut */
+.site-main section{ margin-block: 28px; }
+
+/* Utilitaire pour une section plein écran (si besoin : hero, bandeau) */
+.full-bleed{
+  width:100vw;
+  margin-left:50%;
+  transform:translateX(-50%);
+}
